@@ -46,7 +46,7 @@ body{
         display: flex;
         width: 600px;
         margin: 60px auto;
-        gap: 44px;
+        gap: 20px;
         position:relative;
 		padding-left: 12px;
     }
@@ -104,7 +104,7 @@ body{
         display: flex;
         width: 600px;
         margin: 60px auto;
-        gap: 44px;
+        gap: 20px;
         position:relative;
 		padding-left: 12px;
     }
