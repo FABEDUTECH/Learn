@@ -16,7 +16,8 @@ body{
     text-align: left;
 }
 .welcome{
-    text-align: left;
+    text-align: centre;
+    display: inline-block;
 }
 .padding{
     padding: 10px;
@@ -26,8 +27,8 @@ body{
     padding-left: 12px;
 }
 .container{
-	display:flex;
-        text-align: left;
+	display:centre;
+        text-align: centre;
 	width: fit-content;
         
        
@@ -49,7 +50,8 @@ body{
         margin: 60px auto;
         gap: 20px;
         position:relative;
-		padding-left: 12px;
+	padding-left: 12px;
+	display: inline-block;
     }
     .welcome{
 
@@ -57,12 +59,13 @@ body{
 	    text-align: centre;
 	    width: fit-content;
 	    position:relative;
+	    display: inline-block;
         
        
     }
     .bg{
         background-color: orangered;
-        width: fit-content;
+        width: 600px;
         color: white;
         margin: 60px auto;
         padding: 120px 40px;
@@ -79,7 +82,7 @@ body{
     width: fit-content;
     margin: 10px auto;
     color: white;
-    position: sticky;
+    position:relative;
     top: 0;
 
     }
@@ -91,7 +94,7 @@ body{
     width: fit-content;
     margin: 10px auto;
     color: white;
-    position: sticky;
+    position:relative;
     top: 0;
 
     }
@@ -106,23 +109,25 @@ body{
 
 @media(max-width: 989px){
    .container{
-        display: flex;
+       display: inline-block;
         width: fit-content;
         margin: 60px auto;
         gap: 20px;
         position:relative;
-		padding-left: 12px;
+	padding-left: 12px;
+	   
     }
     .welcome{
          text-align: centre;
 	    width: fit-content;
 	    position:relative;
+	     display: inline-block;
         
        
     }
     .bg{
         background-color: orangered;
-        width: fit-content;
+        width: 300px;
         color: white;
         margin: 60px auto;
         padding: 120px 40px;
