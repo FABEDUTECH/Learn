@@ -127,6 +127,10 @@ body{
     top: 0;
 
     }
+	.coursedetail{
+	text-align: centre;
+	position:relative;
+}
 	.avatar{
 		padding-left: 12px;
 		border-radius: 16px;
@@ -154,6 +158,34 @@ body{
         
        
     }
+	.python{
+    background-color: orangered;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    width: fit-content;
+    margin: 10px auto;
+    color: white;
+    position:relative;
+    top: 0;
+
+    }
+    .javacourse{
+    background-color: orangered;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    width: fit-content;
+    margin: 10px auto;
+    color: white;
+    position:relative;
+    top: 0;
+
+    }
+	.coursedetail{
+	text-align: centre;
+	position:relative;
+}
     .bg{
         background-color: orangered;
         width: 300px;
