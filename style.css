@@ -6,7 +6,7 @@ body{
     background-color: orangered;
     width: 600px;
     color: white;
-	position:flex;
+	position:relative;
     margin: 60px auto;
     padding: 120px 40px;
     border-radius: 16px;
@@ -23,7 +23,7 @@ body{
     text-align: center;
     width: fit-content;
     display: inline-block;
-	position:relative;
+	position:absolute;
 }
 .padding{
     padding: 10px;
@@ -47,7 +47,7 @@ body{
     width: fit-content;
     margin: 10px auto;
     color: white;
-    position:relative;
+    position:absolute;
     top: 0;
 
     }
@@ -59,7 +59,7 @@ body{
     width: fit-content;
     margin: 10px auto;
     color: white;
-    position:relative;
+    position:absolute;
     top: 0;
 
     }
@@ -90,7 +90,7 @@ body{
 	    width: fit-content;
 	    position:relative;
 	    display: inline-block;
-	    position:relative;
+	    position:absolute;
         
        
     }
@@ -115,7 +115,7 @@ body{
     width: fit-content;
     margin: 10px auto;
     color: white;
-    position:relative;
+    position:absolute;
     top: 0;
 	    display:flex;
 	     text-align: center;
@@ -129,7 +129,7 @@ body{
     width: fit-content;
     margin: 10px auto;
     color: white;
-    position:relative;
+    position:absolute;
     top: 0;
 	    display:flex;
 	     text-align: center;
@@ -161,7 +161,7 @@ body{
     .welcome{
          text-align: centre;
 	    width: fit-content;
-	    position:relative;
+	    position:absolute;
 	     display: inline-block;
         
        
@@ -174,7 +174,7 @@ body{
     width: fit-content;
     margin: 10px auto;
     color: white;
-    position:relative;
+    position:absolute;
     top: 0;
 		 text-align: center;
 
@@ -187,7 +187,7 @@ body{
     width: fit-content;
     margin: 10px auto;
     color: white;
-    position:relative;
+    position:absolute;
     top: 0;
 	     text-align: center;
 
