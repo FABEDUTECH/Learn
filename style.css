@@ -4,7 +4,7 @@ body{
 }
 .bg{
     background-color: orangered;
-    width: 500px;
+    width: fit-content;
     color: white;
     margin: 60px auto;
     padding: 120px 40px;
@@ -28,7 +28,7 @@ body{
 .container{
 	display:flex;
         text-align: left;
-		width: fit-content;
+	width: fit-content;
         
        
     }
@@ -45,7 +45,7 @@ body{
 @media(min-width: 990px){
     .container{
         display: flex;
-        width: 600px;
+        width: fit-content;
         margin: 60px auto;
         gap: 20px;
         position:relative;
@@ -53,13 +53,15 @@ body{
     }
     .welcome{
 
-		position:center-right;
+		
+	    text-align: centre;
+	    width: fit-content;
         
        
     }
     .bg{
         background-color: orangered;
-        width: 50px;
+        width: fit-content;
         color: white;
         margin: 60px auto;
         padding: 120px 40px;
@@ -72,7 +74,7 @@ body{
     padding: 10px;
     border: none;
     border-radius: 14px;
-    width: 280px;
+    width: fit-content;
     margin: 10px auto;
     color: white;
     position: sticky;
@@ -84,7 +86,7 @@ body{
     padding: 10px;
     border: none;
     border-radius: 14px;
-    width: 280px;
+    width: fit-content;
     margin: 10px auto;
     color: white;
     position: sticky;
@@ -94,7 +96,7 @@ body{
 	.avatar{
 		padding-left: 12px;
 		border-radius: 16px;
-		 width: 600px;
+		 width: fit-content;
 		 position:relative;
 	}
        
@@ -103,20 +105,21 @@ body{
 @media(max-width: 989px){
    .container{
         display: flex;
-        width: 600px;
+        width: fit-content;
         margin: 60px auto;
         gap: 20px;
         position:relative;
 		padding-left: 12px;
     }
     .welcome{
-        position:center-right;
+         text-align: centre;
+	    width: fit-content;
         
        
     }
     .bg{
         background-color: orangered;
-        width: 100px;
+        width: fit-content;
         color: white;
         margin: 60px auto;
         padding: 120px 40px;
@@ -127,7 +130,7 @@ body{
 	.avatar{
 		padding-left: 12px;
 		border-radius: 16px;
-		 width: 600px;
+		 width: fit-content;
 		 position:relative;
 	}
     
