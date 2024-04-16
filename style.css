@@ -6,6 +6,7 @@ body{
     background-color: orangered;
     width: 600px;
     color: white;
+	text-align: center;
 	position:relative;
     margin: 60px auto;
     padding: 120px 40px;
