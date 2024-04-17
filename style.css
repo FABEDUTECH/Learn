@@ -6,12 +6,15 @@
 
 @media(min-width: 990px){
     .container{
-        display: center;
-        width: fit-content;
+        display: center;        
         margin: 60px auto;
         gap: 20px;
         position:relative;
-	padding-left: 12px;
+	    padding-left: 12px;
+        left:30px;
+        right:30px;
+        top:0;
+        bottom:0;
 	
     }
     .welcome{
@@ -37,6 +40,9 @@
 	    position:absolute;
 	    display:center;
 	     text-align: center;
+         top:0;
+        
+         
     }
     .Python{
     background-color: orangered;
@@ -75,18 +81,33 @@
 		 width: fit-content;
 		 position:relative;
 	}
+    .About{
+
+		
+	    text-align: left;
+	    width: fit-content;
+	    position:relative;
+	  
+	   
+        
+       
+    }
        
 }
 
 @media(max-width: 989px){
    .container{
-
-        width: fit-content;
+        
         margin: 60px auto;
         gap: 20px;
         position:relative;
 	padding-left: 12px;
-	   display:center
+	   display:center;
+       left:30px;
+       right:30px;
+       top:0;
+       bottom:0;
+   
 	   
     }
     .welcome{
@@ -139,6 +160,9 @@
 	    position:absolute;
 	     text-align: center;
 	    display:center;
+        top:0;
+       
+     
     }
 	.avatar{
 		padding-left: 12px;
@@ -147,6 +171,17 @@
 		 position:relative;
 		 text-align: center;
 	}
+    .About{
+
+		
+	    text-align: left;
+	    width: fit-content;
+	    position:relative;
+	  
+	   
+        
+       
+    }
     
     
 }
