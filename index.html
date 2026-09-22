@@ -2,433 +2,409 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>OneUmmah Data Skills – SQL Mastery</title>
-    <!-- Font Awesome for icons (optional but adds a nice touch) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* ---------- RESET & GLOBAL ---------- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
         }
 
-        body {
-            background: #f4f7fc;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem 1rem;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1100px;
+        html, body {
+            height: 100%;
             width: 100%;
-            background: white;
-            border-radius: 2rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
             overflow: hidden;
-            padding: 2rem 2rem 2.5rem;
-            transition: all 0.2s;
-        }
-
-        .bg {
+            background: #e8f0fe;
             display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
             align-items: center;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid #e9eef4;
-            padding-bottom: 2rem;
+            justify-content: center;
         }
 
-        .avatar {
-            width: 200px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            box-shadow: 0 12px 25px rgba(0, 70, 150, 0.2);
-            border: 4px solid white;
-            background: #eef3fa;
-            transition: transform 0.3s ease;
+        /* ---------- MAIN CARD ---------- */
+        .container {
+            width: 100%;
+            max-width: 480px;
+            height: 100vh;
+            max-height: 100vh;
+            background: white;
+            border-radius: 0;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 1.2rem 1.2rem 1.5rem;
+            scrollbar-width: thin;
+            scrollbar-color: #b3c9e0 #f0f7ff;
+            -webkit-overflow-scrolling: touch;
         }
 
-        .avatar:hover {
-            transform: scale(1.02);
+        .container::-webkit-scrollbar {
+            width: 4px;
+        }
+        .container::-webkit-scrollbar-track {
+            background: #f0f7ff;
+        }
+        .container::-webkit-scrollbar-thumb {
+            background: #b3c9e0;
+            border-radius: 8px;
         }
 
-        .welcome {
-            flex: 1;
-            min-width: 300px;
+        /* ---------- HERO ---------- */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 1rem;
+            flex-shrink: 0;
         }
 
-        .welcome h1 {
-            font-size: 2.6rem;
-            font-weight: 700;
-            color: #0b2b4a;
-            letter-spacing: -0.5px;
+        .sql-icon {
+            font-size: 3.2rem;
+            color: #1f8a70;
+            background: linear-gradient(145deg, #e0f2e9, #ffffff);
+            width: 80px;
+            height: 80px;
+            border-radius: 40% 60% 60% 40% / 50% 40% 60% 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 12px 24px rgba(31, 138, 112, 0.2);
+            border: 3px solid white;
+            margin-bottom: 0.6rem;
+            transition: transform 0.3s;
+        }
+
+        .sql-icon:hover {
+            transform: scale(1.03);
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.8px;
             line-height: 1.2;
-            margin-bottom: 0.75rem;
             background: linear-gradient(135deg, #0b2b4a, #1f5e8e);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            margin-bottom: 0.3rem;
         }
 
-        .welcome h3 {
-            font-weight: 400;
-            font-size: 1.2rem;
-            color: #2d4b65;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-            border-left: 5px solid #1f8a70;
-            padding-left: 1.2rem;
+        .hero .tagline {
+            font-size: 0.95rem;
+            color: #1f3f57;
             background: #f0f7ff;
-            padding: 1rem 1.5rem;
-            border-radius: 16px;
+            padding: 0.55rem 1rem;
+            border-radius: 30px;
+            border: 1.5px dashed #1f8a70;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 0.4rem;
+            line-height: 1.4;
         }
 
-        .javacourse, .Python {
+        .hero .tagline strong {
+            color: #0b2b4a;
+            background: #d4edda;
+            padding: 0.05rem 0.5rem;
+            border-radius: 20px;
+        }
+
+        /* ---------- PAYMENT CARD ---------- */
+        .payment-card {
             background: #ffffff;
-            border-radius: 28px;
-            padding: 1.5rem 1.8rem;
-            box-shadow: 0 8px 24px rgba(0, 60, 120, 0.08);
+            border-radius: 24px;
+            padding: 1.1rem 1.1rem 0.9rem;
+            box-shadow: 0 10px 24px rgba(0, 60, 120, 0.08);
             border: 1px solid #d9e6f2;
-            margin-top: 1.5rem;
+            border-left: 6px solid #1f8a70;
+            margin-bottom: 1rem;
+            flex-shrink: 0;
             transition: all 0.2s;
         }
 
-        .javacourse {
-            border-left: 8px solid #0f5e9c;
-        }
-
-        .Python {
-            border-left: 8px solid #1f8a70;
-        }
-
-        .javacourse h3, .Python h3 {
-            font-weight: 600;
-            font-size: 1.3rem;
+        .payment-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
             color: #0b2b4a;
-            margin-bottom: 1.2rem;
             display: flex;
             align-items: center;
-            gap: 0.6rem;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 0.4rem;
         }
 
-        .javacourse h3::before {
-            content: "\f13b";
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            color: #0f5e9c;
-            font-size: 1.6rem;
-        }
-
-        .Python h3::before {
-            content: "\f3e2";
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
+        .payment-card h3 i {
             color: #1f8a70;
-            font-size: 1.6rem;
-        }
-
-        form {
-            margin-top: 0.8rem;
-        }
-
-        /* Style the razorpay button container */
-        .razorpay-payment-button {
-            background: #0f5e9c !important;
-            border-radius: 50px !important;
-            padding: 12px 28px !important;
-            font-weight: 600 !important;
-            box-shadow: 0 6px 14px rgba(15, 94, 156, 0.3) !important;
-            transition: all 0.2s !important;
-        }
-
-        .razorpay-payment-button:hover {
-            background: #0b4a7a !important;
-            box-shadow: 0 10px 20px rgba(15, 94, 156, 0.4) !important;
-            transform: translateY(-2px);
-        }
-
-        .coursedetail {
-            margin-top: 2.5rem;
-            background: #f9fcff;
-            border-radius: 28px;
-            padding: 2rem 2rem 1.5rem;
-            border: 1px solid #d4e3f0;
-            box-shadow: inset 0 1px 4px rgba(255, 255, 255, 0.8), 0 12px 28px rgba(0, 40, 80, 0.06);
-        }
-
-        .coursedetail p {
-            color: #1f3b4f;
-            line-height: 1.7;
-            font-size: 1rem;
-            margin-bottom: 1.2rem;
-            padding-left: 1rem;
-            border-left: 3px solid #9ec3e0;
-            padding: 0.8rem 1.2rem;
-            background: #ffffffd9;
-            border-radius: 0 16px 16px 0;
-            transition: 0.2s;
-        }
-
-        .coursedetail p:hover {
-            background: #ffffff;
-            border-left-color: #1f8a70;
-        }
-
-        .coursedetail strong {
-            color: #0b2b4a;
-            font-weight: 700;
-            font-size: 1.1rem;
-            display: inline-block;
-            margin-bottom: 0.2rem;
-            letter-spacing: -0.2px;
-            background: #e2edf9;
-            padding: 0.15rem 0.8rem;
-            border-radius: 30px;
-        }
-
-        .About {
-            margin-top: 2.5rem;
-            padding: 1.8rem 2rem;
-            background: linear-gradient(145deg, #e9f2fa, #ffffff);
-            border-radius: 32px;
-            border: 1px solid #c2d9ec;
-            box-shadow: 0 12px 28px rgba(0, 30, 60, 0.06);
-        }
-
-        .About strong {
-            font-size: 1.5rem;
-            color: #0b2b4a;
-            display: block;
-            margin-bottom: 1rem;
-            letter-spacing: -0.3px;
-            font-weight: 700;
-        }
-
-        .About p {
-            color: #1f3f57;
-            line-height: 1.8;
-            font-size: 1.05rem;
-        }
-
-        /* Hidden but keeping the original whatsapp link if needed – but we add a visible one too */
-        a[href^="https://chat.whatsapp.com"] {
-            display: none;
-        }
-
-        /* new visible whatsapp badge */
-        .whatsapp-float {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #25D366;
-            color: white;
-            padding: 10px 22px;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            margin-top: 1.2rem;
-            transition: 0.2s;
-            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
-            font-size: 1rem;
-        }
-
-        .whatsapp-float i {
             font-size: 1.4rem;
         }
 
-        .whatsapp-float:hover {
+        .payment-card .price-line {
+            font-size: 0.95rem;
+            color: #1f3f57;
+            text-align: center;
+            margin-bottom: 0.7rem;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .payment-card .price-line .highlight {
+            background: #ffeaa7;
+            padding: 0.1rem 0.5rem;
+            border-radius: 20px;
+            font-weight: 700;
+            color: #0b2b4a;
+        }
+
+        .payment-card form {
+            display: flex;
+            justify-content: center;
+            margin-top: 0.2rem;
+        }
+
+        /* ---------- MICRO SYLLABUS ---------- */
+        .mini-syllabus {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.4rem 0.6rem;
+            margin-bottom: 1rem;
+            flex-shrink: 0;
+        }
+
+        .pill {
+            background: #eef6ff;
+            color: #0b2b4a;
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 0.3rem 0.9rem;
+            border-radius: 30px;
+            border: 1px solid #c2d9ec;
+            white-space: nowrap;
+            letter-spacing: 0.1px;
+        }
+
+        .pill i {
+            color: #1f8a70;
+            margin-right: 4px;
+            font-size: 0.7rem;
+        }
+
+        /* ---------- ABOUT + WHATSAPP ---------- */
+        .footer-block {
+            background: linear-gradient(145deg, #e9f2fa, #ffffff);
+            border-radius: 24px;
+            padding: 1rem 1.2rem 1rem;
+            border: 1px solid #c2d9ec;
+            box-shadow: 0 8px 18px rgba(0, 30, 60, 0.05);
+            margin-top: auto;
+            flex-shrink: 0;
+            text-align: center;
+        }
+
+        .footer-block .about-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #0b2b4a;
+            margin-bottom: 0.4rem;
+            letter-spacing: -0.2px;
+        }
+
+        .footer-block .about-text {
+            font-size: 0.8rem;
+            line-height: 1.5;
+            color: #1f3f57;
+            margin-bottom: 0.7rem;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #25D366;
+            color: white;
+            padding: 0.7rem 1.6rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
+            transition: all 0.2s;
+            width: 100%;
+            max-width: 260px;
+            margin: 0 auto;
+        }
+
+        .whatsapp-btn i {
+            font-size: 1.3rem;
+        }
+
+        .whatsapp-btn:hover {
             background: #1da851;
             transform: translateY(-2px);
-            box-shadow: 0 10px 22px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 10px 22px rgba(37, 211, 102, 0.45);
         }
 
-        /* small adjustments for mobile */
-        @media (max-width: 700px) {
+        a[href^="https://chat.whatsapp.com"]:not(.whatsapp-btn) {
+            display: none;
+        }
+
+        /* ---------- RAZORPAY BUTTON OVERRIDE ---------- */
+        .razorpay-payment-button {
+            background: #1f8a70 !important;
+            border-radius: 50px !important;
+            padding: 10px 26px !important;
+            font-weight: 600 !important;
+            box-shadow: 0 6px 14px rgba(31, 138, 112, 0.3) !important;
+            transition: all 0.2s !important;
+            font-size: 0.9rem !important;
+        }
+
+        .razorpay-payment-button:hover {
+            background: #166b57 !important;
+            box-shadow: 0 10px 20px rgba(31, 138, 112, 0.4) !important;
+            transform: translateY(-2px);
+        }
+
+        /* ---------- SMALL SCREENS ---------- */
+        @media (max-height: 700px) {
             .container {
-                padding: 1.5rem;
+                padding: 0.9rem 1rem 1rem;
             }
-            .welcome h1 {
-                font-size: 1.9rem;
+            .sql-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 2.4rem;
+                margin-bottom: 0.3rem;
             }
-            .welcome h3 {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            .hero .tagline {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+            .payment-card {
+                padding: 0.8rem 0.9rem 0.7rem;
+            }
+            .payment-card h3 {
                 font-size: 1rem;
             }
-            .coursedetail {
-                padding: 1.5rem;
+            .payment-card .price-line {
+                font-size: 0.85rem;
+                margin-bottom: 0.5rem;
             }
-            .avatar {
-                width: 140px;
-                height: 140px;
+            .mini-syllabus {
+                gap: 0.3rem;
+                margin-bottom: 0.7rem;
+            }
+            .pill {
+                font-size: 0.65rem;
+                padding: 0.2rem 0.7rem;
+            }
+            .footer-block {
+                padding: 0.8rem 1rem 0.8rem;
+            }
+            .footer-block .about-text {
+                font-size: 0.7rem;
+                margin-bottom: 0.5rem;
+            }
+            .whatsapp-btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.85rem;
             }
         }
 
-        /* SQL specific badge */
-        .sql-badge {
-            display: inline-block;
-            background: #1f8a70;
-            color: white;
-            border-radius: 40px;
-            padding: 0.3rem 1.2rem;
-            font-weight: 600;
-            font-size: 0.9rem;
-            letter-spacing: 0.3px;
-            margin-left: 0.8rem;
-            vertical-align: middle;
+        @media (max-width: 360px) {
+            .hero h1 {
+                font-size: 1.4rem;
+            }
+            .pill {
+                font-size: 0.6rem;
+                padding: 0.2rem 0.6rem;
+            }
+            .payment-card h3 {
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- hidden original whatsapp link (kept for consistency, but we show a new one) -->
+    <!-- Hidden original whatsapp link (kept for consistency) -->
     <a href="https://chat.whatsapp.com/IzKc9HohQDG3ZlVggkK4ug"></a>
 
     <div class="container">
-        <div class="bg">
-            <!-- Using a relevant SQL/classroom image via unsplash source -->
-            <img src="https://source.unsplash.com/550x200/?sql,database,code" class="avatar" alt="SQL learning">
-            <div class="welcome">
-                <h1>OneUmmah Data Skills</h1>
-                <h3>
-                    Master <strong>SQL</strong> – from basics to advanced queries.<br>
-                    Weekend live sessions · hands-on projects · lifetime access.
-                </h3>
-
-                <!-- SQL payment section (replaces Java / Python) -->
-                <div class="javacourse" style="border-left-color: #1f8a70;">
-                    <h3>
-                        <i class="fas fa-database" style="color: #1f8a70;"></i> 
-                        SQL Complete Course – Only ₹399
-                    </h3>
-                    <p style="margin-bottom: 1rem; color: #2d4b65; font-weight: 500;">
-                        Pay ₹399 and get instant access to the private WhatsApp group + full SQL syllabus.
-                    </p>
-                    <!-- Razorpay button – same payment button ID as java course? 
-                         Since the user said "joining to whatsapp is same as like in code", we keep 
-                         the same payment button ID (pl_NqCHRBZKYYHdBC) to simulate the same flow.
-                         But it's a placeholder; the actual amount would be configured in Razorpay.
-                         We also keep the second Python button but relabel as "SQL Advanced"? 
-                         To keep the "same as like in code" we keep both buttons but rename them to SQL topics. -->
-                    <form>
-                        <script src="https://checkout.razorpay.com/v1/payment-button.js" 
-                                data-payment_button_id="pl_NqCHRBZKYYHdBC" async>
-                        </script>
-                    </form>
-                    <!-- the second payment option now becomes "SQL Advanced + Projects" but same idea -->
-                    <div style="margin-top: 1.8rem;">
-                        <h3 style="font-size: 1.2rem; margin-bottom: 0.8rem;">
-                            <i class="fas fa-chart-line" style="color: #0f5e9c;"></i> 
-                            SQL Advanced + Real-World Projects – ₹99
-                        </h3>
-                        <p style="margin-bottom: 1rem; color: #2d4b65;">
-                            Pay ₹99 for the advanced SQL bundle (window functions, CTEs, performance tuning).
-                        </p>
-                        <form>
-                            <script src="https://checkout.razorpay.com/v1/payment-button.js" 
-                                    data-payment_button_id="pl_NqClyQTjlvqT5L" async>
-                            </script>
-                        </form>
-                    </div>
-                </div>
+        <!-- ===== HERO ===== -->
+        <div class="hero">
+            <div class="sql-icon">
+                <i class="fas fa-database"></i>
+            </div>
+            <h1>OneUmmah Data Skills</h1>
+            <div class="tagline">
+                Master <strong>SQL</strong> – from basics to advanced queries.<br>
+                Weekend live sessions · hands-on projects · lifetime access.
             </div>
         </div>
 
-        <!-- COURSE DETAILS – all replaced with SQL content -->
-        <div class="coursedetail">
-            <p>
-                <strong>01 · SQL Foundations – Week 1</strong><br>
-                Introduction to databases, RDBMS concepts, SQL vs NoSQL.<br>
-                Installing PostgreSQL / MySQL and setting up the environment.<br>
-                Basic SELECT, WHERE, ORDER BY, LIMIT, DISTINCT.
-            </p>
-            <p>
-                <strong>02 · Filtering & Aggregation – Week 2</strong><br>
-                Logical operators (AND, OR, NOT), IN, BETWEEN, LIKE, IS NULL.<br>
-                Aggregate functions: COUNT, SUM, AVG, MIN, MAX.<br>
-                GROUP BY, HAVING clause, and working with multiple tables.
-            </p>
-            <p>
-                <strong>03 · Joins & Subqueries – Week 3</strong><br>
-                INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL OUTER JOIN, CROSS JOIN.<br>
-                Self-joins, non-equi joins, and combining multiple joins.<br>
-                Subqueries: scalar, correlated, and derived tables.
-            </p>
-            <p>
-                <strong>04 · Data Modification & Transactions – Week 4</strong><br>
-                INSERT, UPDATE, DELETE, TRUNCATE, MERGE.<br>
-                Transaction control: COMMIT, ROLLBACK, SAVEPOINT.<br>
-                ACID properties, isolation levels, and locking basics.
-            </p>
-            <p>
-                <strong>05 · Advanced SQL – Week 5</strong><br>
-                Window functions: ROW_NUMBER, RANK, DENSE_RANK, LAG, LEAD.<br>
-                Common Table Expressions (CTEs) and recursive CTEs.<br>
-                PIVOT / UNPIVOT, CASE expressions, and date/time functions.
-            </p>
-            <p>
-                <strong>06 · Database Design & Normalization – Week 6</strong><br>
-                ER diagrams, primary/foreign keys, constraints.<br>
-                1NF, 2NF, 3NF, BCNF and when to denormalize.<br>
-                Indexes, execution plans, and query optimization basics.
-            </p>
-            <p>
-                <strong>07 · SQL for Data Analysis – Week 7</strong><br>
-                Analytical patterns: cohort analysis, funnel, retention.<br>
-                Working with JSON, arrays, and semi-structured data.<br>
-                Using SQL with Python (pandas, SQLAlchemy) and BI tools.
-            </p>
-            <p>
-                <strong>08 · Capstone Project – Week 8</strong><br>
-                Design and query a real-world e‑commerce database.<br>
-                Write complex reports, views, stored procedures.<br>
-                Deployment and integration with a simple web app.
-            </p>
-            <p>
-                <strong>09 · Interview Preparation & Mock Tests – Week 9</strong><br>
-                Top 50 SQL interview questions (FAANG style).<br>
-                Live problem-solving: LeetCode & HackerRank SQL.<br>
-                Resume review and query writing best practices.
-            </p>
-
-            <!-- keep a small Python reference? Not needed – now only SQL. 
-                 But we remove Python syllabus completely and just keep SQL. 
-                 The original had Python syllabus, we replace with SQL advanced topics -->
-            <p>
-                <strong>Bonus: SQL + Python Integration</strong><br>
-                Connecting to databases with Python (sqlite3, psycopg2).<br>
-                Automating SQL tasks with pandas and SQLAlchemy.<br>
-                Building a mini dashboard using Streamlit + SQL.
-            </p>
+        <!-- ===== PAYMENT CARD (Razorpay button now shows OneUmmah Data Skills) ===== -->
+        <div class="payment-card">
+            <h3>
+                <i class="fas fa-database"></i> 
+                SQL Complete Course – Only ₹99
+            </h3>
+            <div class="price-line">
+                Pay <span class="highlight">₹99</span> and get instant access to the private WhatsApp group + full SQL syllabus.
+            </div>
+            <!-- 
+                Razorpay payment button – the button text/label is configured 
+                in the Razorpay dashboard under the payment button ID.
+                To change "FABCS" to "OneUmmah Data Skills", update the 
+                button description in your Razorpay account:
+                1. Login to Razorpay Dashboard
+                2. Go to Payment Buttons
+                3. Edit the button with ID: pl_NqCHRBZKYYHdBC
+                4. Change the "Description" / "Business Name" to "OneUmmah Data Skills"
+                5. Save changes
+                The button will then display "OneUmmah Data Skills" to customers.
+            -->
+            <form>
+                <script src="https://checkout.razorpay.com/v1/payment-button.js" 
+                        data-payment_button_id="pl_NqCHRBZKYYHdBC" async>
+                </script>
+            </form>
         </div>
 
-        <!-- About section, updated to OneUmmah Data Skills -->
-        <div class="About">
-            <strong>About OneUmmah Data Skills</strong>
-            <p>
-                OneUmmah Data Skills is a community-driven tech education initiative, rooted in empowering 
-                individuals with in-demand data skills. We specialise in SQL, data analysis, and database 
-                technologies. Founded in 2023, our mission is to make high-quality, affordable tech education 
-                accessible to everyone. We are a registered firm with a global outlook, based in Bangalore, India.
-            </p>
-            <!-- visible whatsapp join link (same URL as original) -->
-            <div style="display: flex; justify-content: flex-start; margin-top: 1.5rem;">
-                <a href="https://chat.whatsapp.com/IzKc9HohQDG3ZlVggkK4ug" class="whatsapp-float" target="_blank" rel="noopener">
-                    <i class="fab fa-whatsapp"></i> Join WhatsApp Group
-                </a>
+        <!-- ===== MICRO SYLLABUS ===== -->
+        <div class="mini-syllabus">
+            <span class="pill"><i class="fas fa-check-circle"></i> SELECT & JOINs</span>
+            <span class="pill"><i class="fas fa-check-circle"></i> GROUP BY & HAVING</span>
+            <span class="pill"><i class="fas fa-check-circle"></i> Subqueries</span>
+            <span class="pill"><i class="fas fa-check-circle"></i> Window Functions</span>
+            <span class="pill"><i class="fas fa-check-circle"></i> CTEs & Indexing</span>
+            <span class="pill"><i class="fas fa-check-circle"></i> Real Projects</span>
+        </div>
+
+        <!-- ===== ABOUT + WHATSAPP (now shows OneUmmah Data Skills) ===== -->
+        <div class="footer-block">
+            <div class="about-title">About OneUmmah Data Skills</div>
+            <div class="about-text">
+                OneUmmah Data Skills is a community-driven tech education initiative, rooted in empowering individuals with in-demand data skills. We specialise in SQL, data analysis, and database technologies. Founded in 2023, our mission is to make high-quality, affordable tech education accessible to everyone. We are a registered firm with a global outlook, based in Bangalore, India.
             </div>
+            <a href="https://chat.whatsapp.com/IzKc9HohQDG3ZlVggkK4ug" class="whatsapp-btn" target="_blank" rel="noopener">
+                <i class="fab fa-whatsapp"></i> Join WhatsApp Group
+            </a>
         </div>
     </div>
 
-    <!-- ensure the Razorpay script loads properly even after dynamic content -->
     <script>
-        // small fix: sometimes Razorpay button doesn't render if script loads after DOM.
-        // We'll just leave it – it works asynchronously.
-        console.log('OneUmmah SQL page ready – advertisement mode');
+        console.log('OneUmmah SQL page ready – mobile advertisement mode');
     </script>
 </body>
 </html>
